@@ -1,0 +1,313 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Best Online Food Delivery Service in India | MyOnlineMeal.com</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" media="screen and (max-width: 1170px)" href="{% static 'css/phone.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <a href=""><img src="{% static 'img/logo.png' %}" alt="MyOnlineMeal.com"></a>
+        </div>
+        <ul>
+            <li class="item"><a href="">Home</a></li>
+            <li class="item"><a href="menu">Menu</a></li>
+            <li class="item"><a href="#services-container">Services</a></li>
+            <li class="item"><a href="#reviewsection">Reviews</a></li>
+            <li class="item"><a href="contact">Contact Us</a></li>
+            {% if user.is_authenticated %}
+            <li class="item"><a href="#">My Orders</a></li>
+            <li class="item"><a href="logout">Logout</a></li>
+            {% else %}
+            <li class="item"><a href="#" data-toggle="modal" data-target="#staticBackdroplogin">Login</a></li>
+            <li class="item"><a href="#" data-toggle="modal" data-target="#staticBackdropsignup">Signup</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <section id="home" style="background: url({% static 'img/bg1.jpg' %}) no-repeat center center/cover;">
+        <h1 class="h-primary">Welcome to MyOnlineMeal</h1>
+        <p>We deliver great taste to every workplace, </p>
+        <p>connecting you and your teams to delicious meals from your favorite local restaurants.</p>
+        {% if request.user.is_authenticated %}
+        <button type="button" class="btnorder btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">Order
+            Now</button>
+        {% else %}
+        <button type="button" class="btnorder btn btn-danger" data-toggle="modal"
+            data-target="#staticBackdroplogin">Order
+            Now</button>
+        {% endif %}
+    </section>
+
+    <section id="services-container">
+        <h1 class="h-primary center">Our Services</h1>
+        <div id="services">
+            <div class="box">
+                <img src="{% static 'img/1.png' %}" alt="">
+                <h2 class="h-secondary center">Food Catering</h2>
+                <p class="center">Catering is the business of providing food service at a remote site or a site such as
+                    a hotel, hospital, pub, aircraft, cruise ship, park, filming site or studio, entertainment site, or
+                    event venue.
+                    Whether your business needs food brought to your location, or you are thinking feeding yourself,
+                    then you might consider looking into catering.</p>
+            </div>
+            <div class="box">
+                <img src="{% static 'img/3.png' %}" alt="">
+                <h2 class="h-secondary center">Home Delivery*</h2>
+                <p class="center">We can also deliver to your home while you relax. Just fill up the order form and
+                    place your order!sint delectus ab dolorum nam. Debitis facere, incidunt voluptates eos, mollitia
+                    voluptatem iste sunt
+                </p>
+            </div>
+            <div class="box">
+                <img src="{% static 'img/2.png' %}" alt="">
+                <h2 class="h-secondary center">Bulk Ordering</h2>
+                <p class="center">Bulk purchasing is the purchase of much larger quantities than the usual, for a unit
+                    price that is lower than the usual. Wholesaling is selling goods in large quantities at a low unit
+                    price to retail merchants.
+                    sint delectus ab dolorum nam. Debitis facere, incidunt voluptates eos, mollitia voluptatem iste sunt
+                    voluptas beatae facilis labore, omnis sint quae eum.</p>
+            </div>
+
+        </div>
+    </section>
+    <section id="client-section">
+        <div class="row">
+            <div class="col">
+                <h1 class="h-primary center" style="color: white">Reviews</h1>
+            </div>
+        </div>
+        <div class="row" id="reviewsection">
+            <div class="col"></div>
+            <div class="col-lg-2 col-sm-12 col-xs-12">
+                <p class="reviews">
+                    "The food was fresh, properly prepared and a great value for the price. We highly recommend it. "
+                </p>
+            </div>
+            <div class="col-lg-2 col-sm-12 col-xs-12">
+                <p class="reviews">
+                    "The best online food service I've experienced! And that's saying a lot, since I've been to many!"
+                </p>
+            </div>
+            <div class="col-lg-2 col-sm-12 col-xs-12">
+                <p class="reviews">
+                    "Amazing food! Great service! Couldn't ask for more! I'll be ordering again and again!"
+                </p>
+            </div>
+            <div class="col-lg-2 col-sm-12 col-xs-12">
+                <p class="reviews">
+                    "The food was absolutely wonderful, from preparation to presentation, very pleasing."
+                </p>
+            </div>
+
+            <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+            </div>
+            <div class="col">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+            </div>
+            <div class="col">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star-half checked"></span>
+            </div>
+            <div class="col">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+            </div>
+            <div class="col"></div>
+        </div>
+        <hr>
+        <br>
+        <div class="row">
+            <div class="col">
+                <p style="color: lightgreen; font-style: italic;" class="center">* Delivery area within 3-4 miles, with
+                    minimum order of $20 plus $3 charge for all deliveries.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!--        Modal-->
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">ORDER NOW</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form autocomplete="off" onsubmit="placeorder()">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
+                                placeholder="Your Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="add">Address:</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                placeholder="Your Address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address:</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ph">Phone:</label>
+                            <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                placeholder="10 Digit Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Order Name:</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1"
+                                placeholder="Dish Name from Menu" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Quantity:</label>
+                            <input type="number" min="0" max="5" class="form-control" id="exampleInputPassword1"
+                                placeholder="Min: 1 Max:5">
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <input type="submit" value="Place Order!" class="btn btn-danger">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="staticBackdroplogin" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">LOGIN</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form autocomplete="off" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="Enter Registered Email" required name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                placeholder="Your Password" required name="pswd">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a href="#" class="btn btn-link">Don't have an account?</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Signup Modal -->
+
+    <div class="modal fade" id="staticBackdropsignup" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">SIGN UP</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" autocomplete="off" action="signup">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="Enter Your Email Address" name="email"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Full Name</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                placeholder="Enter Full Name" name="fullname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                placeholder="Your Password" name="pswd" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Confirm Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                placeholder="Enter Password Again" name="cnfpswd" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Signup</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="center">
+            Copyright &copy; www.myOnlineMeal.com. All rights reserved!
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/5dca73aa5c.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script>
+        function placeorder() {
+            alert('Order Placed Successfully');
+        }
+    </script>
+</body>
+
+</html>
