@@ -22,12 +22,12 @@
         </div>
         <ul>
             <li class="item"><a href="">Home</a></li>
-            <li class="item"><a href="menu">Menu</a></li>
             <li class="item"><a href="#services-container">Services</a></li>
             <li class="item"><a href="#reviewsection">Reviews</a></li>
-            <li class="item"><a href="contact">Contact Us</a></li>
             {% if user.is_authenticated %}
+            <li class="item"><a href="menu">Menu</a></li>
             <li class="item"><a href="#">My Orders</a></li>
+            <li class="item"><a href="contact">Contact Us</a></li>
             <li class="item"><a href="logout">Logout</a></li>
             {% else %}
             <li class="item"><a href="#" data-toggle="modal" data-target="#staticBackdroplogin">Login</a></li>
@@ -37,7 +37,7 @@
     </nav>
 
 
-    
+
     {% if messages %}
     {% for msg in messages%}
     <div class="alert alert-primary alert-dismissible fade show" role="alert">
@@ -243,16 +243,15 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
                             <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter Registered Email" required name="email">
+                                aria-describedby="emailHelp" placeholder="Enter Registered Email" required name="email"
+                                autofocus>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
                             <input type="password" class="form-control" id="exampleInputPassword1"
                                 placeholder="Your Password" required name="pswd">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <a href="#" class="btn btn-link" data-dismiss="#staticBackdroplogin"
-                            data-toggle="#staticBackdropsignup">Don't have an account?</a>
+                        <button type="submit" class="btn btn-primary">Login</button>
                     </form>
                 </div>
             </div>
@@ -279,7 +278,7 @@
                             <label for="exampleInputEmail1">Email address</label>
                             <input type="email" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp" placeholder="Enter Your Email Address" name="email"
-                                required>
+                                required autofocus>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Full Name</label>
@@ -306,7 +305,7 @@
 
     <footer>
         <div class="center">
-            Copyright &copy; www.myOnlineMeal.com. All rights reserved!
+            Copyright &copy; www.myOnlineMeal. All rights reserved!
         </div>
     </footer>
     <script src="https://kit.fontawesome.com/5dca73aa5c.js" crossorigin="anonymous"></script>
