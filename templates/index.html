@@ -36,6 +36,21 @@
         </ul>
     </nav>
 
+
+    
+    {% if messages %}
+    {% for msg in messages%}
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        {{msg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+
     <section id="home" style="background: url({% static 'img/bg1.jpg' %}) no-repeat center center/cover;">
         <h1 class="h-primary">Welcome to MyOnlineMeal</h1>
         <p>We deliver great taste to every workplace, </p>
@@ -223,7 +238,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form autocomplete="off" method="POST">
+                    <form autocomplete="off" method="POST" action="login">
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
@@ -236,7 +251,8 @@
                                 placeholder="Your Password" required name="pswd">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <a href="#" class="btn btn-link">Don't have an account?</a>
+                        <a href="#" class="btn btn-link" data-dismiss="#staticBackdroplogin"
+                            data-toggle="#staticBackdropsignup">Don't have an account?</a>
                     </form>
                 </div>
             </div>

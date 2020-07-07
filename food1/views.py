@@ -16,10 +16,11 @@ def login(request):
         user = auth.authenticate(username = email, password = passw)
         if user is not None:
             auth.login(request,user)
+            messages.error(request,'Logged in Successfully')
             return render(request,'index.html')
         else:
             messages.error(request,'invalid credentials')
-            return redirect('')
+            return render(request,'index.html')
     else:
         return render(request,'index.html')
 
@@ -37,11 +38,14 @@ def signup(request):
             if passw == cpass:
                 user = User.objects.create_user(
                     username=email, email=email, password=passw)
+                messages.info(request,'Signed Up Successfully')
                 return render(request, 'index.html')
-                
             else:
                 messages.error(request, 'Passwords not matching')
                 return render(request, 'index.html')
+    else:
+        messages.error(request,'Not a POST request')
+        return render(request, 'index.html')
 
 
 @login_required
@@ -56,4 +60,5 @@ def menu(request):
 
 def logout(request):
     auth.logout(request)
+    messages.info(request, 'Logged Out')
     return render(request,'index.html')
