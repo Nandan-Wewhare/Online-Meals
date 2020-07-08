@@ -16,7 +16,7 @@ def login(request):
         user = auth.authenticate(username = email, password = passw)
         if user is not None:
             auth.login(request,user)
-            messages.error(request,'Logged in Successfully')
+            messages.error(request,'Welcome back '+email)
             return render(request,'index.html')
         else:
             messages.error(request,'invalid credentials')
