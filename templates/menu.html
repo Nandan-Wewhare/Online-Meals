@@ -21,7 +21,7 @@
             <a href=" "><img src="{% static 'img/logo.png' %}" alt="MyOnlineMeal.com"></a>
         </div>
         <ul>
-            <li class="item"><a href=" ">Home</a></li>
+            <li class="item"><a href="/">Home</a></li>
             <li class="item"><a href="menu">Menu</a></li>
             <li class="item"><a href="contact">Contact Us</a></li>
             <li class="item"><a href="#">My Orders</a></li>
@@ -126,7 +126,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form autocomplete="off" onsubmit="placeorder()">
+                    <form autocomplete="off" onsubmit="placeorder()" method="POST">
+                        {% csrf_token %}
                         <div class="form-group">
                             <label for="name">Name:</label>
                             <input type="text" class="form-control" id="name" aria-describedby="emailHelp"

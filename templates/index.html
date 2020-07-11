@@ -26,7 +26,7 @@
             <li class="item"><a href="#reviewsection">Reviews</a></li>
             {% if user.is_authenticated %}
             <li class="item"><a href="menu">Menu</a></li>
-            <li class="item"><a href="#">My Orders</a></li>
+            <li class="item"><a href="myorders">My Orders</a></li>
             <li class="item"><a href="contact">Contact Us</a></li>
             <li class="item"><a href="logout">Logout</a></li>
             {% else %}
@@ -183,36 +183,37 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form autocomplete="off" onsubmit="placeorder()">
+                    <form autocomplete="off" onsubmit="placeorder()" method="POST" action="ordercnf">
+                        {% csrf_token %}
                         <div class="form-group">
                             <label for="name">Name:</label>
                             <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
-                                placeholder="Your Full Name" required>
+                                placeholder="Your Full Name" required name="name">
                         </div>
                         <div class="form-group">
                             <label for="add">Address:</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                placeholder="Your Address" required>
+                                placeholder="Your Address" required name="address">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address:</label>
                             <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Your Email" required>
+                                aria-describedby="emailHelp" placeholder="Your Email" required name="email">
                         </div>
                         <div class="form-group">
                             <label for="ph">Phone:</label>
                             <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                placeholder="10 Digit Phone Number" required>
+                                placeholder="10 Digit Phone Number" required name="number">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Order Name:</label>
                             <input type="text" class="form-control" id="exampleInputPassword1"
-                                placeholder="Dish Name from Menu" required>
+                                placeholder="Dish Name from Menu" required name="ordername">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Quantity:</label>
                             <input type="number" min="0" max="5" class="form-control" id="exampleInputPassword1"
-                                placeholder="Min: 1 Max:5">
+                                placeholder="Min: 1 Max:5" required name="quantity">
                         </div>
                         <hr>
                         <div class="form-group">

@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
+from .models import Order
 # Create your views here.
 
 
@@ -62,3 +63,21 @@ def logout(request):
     auth.logout(request)
     messages.info(request, 'Logged Out')
     return render(request,'index.html')
+
+@login_required
+def order(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        add = request.POST['address']
+        email = request.POST['email']
+        num = request.POST['number']
+        ordername = request.POST['ordername']
+        quan = request.POST['quantity']
+        order = Order(name = name,add=add,email=email,phone=num,ordername=ordername,quantity=quan)
+        order.save()
+        return render(request,'index.html')
+
+@login_required
+def showorders(request):
+    data = Order.objects.all()
+    return render (request,'myorders.html',{'orders': data})
